@@ -11,6 +11,11 @@ using namespace std;
 
 // Fonction pour créer un utilisateur et choisir une banque
 void creerUtilisateur(vector<Banque>& banques, Banque& utilisateur) {
+    // Votre commentaire fait remarquer que la fonction créé un utilisateur
+    // et demande de choisir une banque, mais elle s'appelle uniquement creerUtilisateur
+    // Vous pouvez initialiser la banque à part ou renommer cette fonction.
+    // Pourquoi ne pas appeler cette fonction initialiserCompte?
+    // Le commentaire deviendrait ainsi inutile et le code appelant n'aurait aucun doute sur ce que fait la fonction.
     int choixBanque;
     double solde, pourcentageRetraitMax, retraitMax;
     string nomCarte, code;
@@ -31,6 +36,8 @@ void creerUtilisateur(vector<Banque>& banques, Banque& utilisateur) {
     if (choixBanque < 1 || choixBanque > banques.size()) {
         cout << "Choix invalide." << endl;
         return;
+        // Si le programme arrive ici, la banque n'est pas initialisée
+        // mais le programme ne s'arrete pas (essayez en entrant 10 puis "toto" par exemple)
     }
 
     // Récupérer la banque choisie par l'utilisateur

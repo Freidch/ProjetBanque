@@ -1,0 +1,21 @@
+Le code est organisé en fichiers séparés par fonctionnalité, ce qui est une approche tout à fait valide vu le projet.
+
+Vérifiez la séparation de responsabilité entre banque et utilisateur et la logique de votre modelisation.
+Ici vous avez une classe Banque (qui représente donc une banque avec potentiellement un nom, une adresse, des clients, une dette etc).
+Le fait d'initialiser une banque en l'appelant "utilisateur" est assez maladroit, c'est la banque de l'utilisateur? Dans ce cas on utilisera la composition (lier banque en attribut de la classe Utilisateur ou l'inverse)
+
+On peut faire entrer les fonctions déposer et retirer dans des classes pour lesquelles cela semble logique de donner la responsabilité de faire ces actions.
+Ici on peut facilement imaginer faire banque.creerUtilisateur
+La fonction void retirerArgent(Banque& banque) donnera simplement void Utilisateur::retirerArgent() ou encore déposer: Utilisateur::deposerArgent().
+
+On donne ainsi une reponsabilité claire aux objets : dans votre programme, un utilisateur peut déposer ou retirer de l'argent, et une banque peut créer des utlisateurs.
+
+A noter que retraitMax est un attribut qui devra être calculer à chaque création de banque, ce qui est assez différent du concept de polymorphisme avec un type de carte par montant max. (votre solution est tout aussi viable en fonction des situations)
+
+Les noms sont très descriptifs, il est, d'une manière générale, préférable d'évitez de mélanger anglais et français.
+Les commentaires que vous mettez décrivent des noms de fonction très précis. N'hésitez pas à aller jusqu'au bout du processus et en faire des fonctions à part. En plus de devenir plus facile à maintenir, vous pourrez ensuite plus facilement détecter dans quelle classes vont ces fonctionalités.
+
+Préférez les méthodes fournies avec les objets, cela vous assure que l'objet est "sensé" pouvoir faire ce que vous souhaitez et vous fournira de meilleurs messsages en cas d'erreur (banques.get(choixBanque) plutot que banques[choixBanque])
+Il est souvent préférable de récupérer les inputs depuis le code appelant (ici la fonction main) puis de les passer en attributs aux fonctions
+
+14/20
