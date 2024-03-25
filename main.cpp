@@ -15,8 +15,7 @@
 
 using namespace std;
 
-int main() {
-    // Initialiser les banques disponibles
+vector<Banque> initalizeBanks() {
     vector<Banque> banques;
     banques.push_back(Banque("BNP Paribas", 0, 0));
     banques.push_back(Banque("Crédit Agricole", 0, 0));
@@ -25,9 +24,14 @@ int main() {
     banques.push_back(Banque("Banque Postale", 0, 0));
     banques.push_back(Banque("HSBC", 0, 0));
     banques.push_back(Banque("Caisse d'épargne", 0, 0));
+    return banques;
+}
+
+int main() {
+    auto banques = initalizeBanks();
 
     Banque utilisateur("", 0, 0);
-    
+
     creerUtilisateur(banques, utilisateur);
 
     // Afficher le code d'authentification crypté une fois que l'utilisateur a terminé la création du compte

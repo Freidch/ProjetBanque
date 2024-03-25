@@ -10,6 +10,7 @@
 #include <iostream>
 #include <sstream>
 #include <ctime>
+#include <algorithm>
 
 Banque::Banque(string nom, double solde, double retraitMax)
     : nom(nom), solde(solde), retraitMax(retraitMax) {}
